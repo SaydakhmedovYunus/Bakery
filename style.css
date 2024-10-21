@@ -978,7 +978,7 @@ footer {
   margin-top: 20px;
   margin-left: calc(14vw - 37.8px);
   margin-right: calc(14vw - 37.8px);
-  background-image: url(../img/video.png);
+  background-image: url(./img/video.png);
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
