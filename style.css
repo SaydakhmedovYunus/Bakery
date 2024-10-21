@@ -1,0 +1,2775 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+/*   outline: 2px solid red; */
+}  
+header {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+header {
+  .logo {
+    width: calc(6.5vw + 66.3px);
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    opacity: 0; /* Скрыто по умолчанию */
+    transform: translateY(-20px); /* Исходная позиция (выше) */
+    animation: fadeIn 0.8s ease forwards; /* Анимация появления */
+    animation-delay: 0.5s; /* Задержка перед появлением */
+  }
+  nav a{
+    text-decoration: none;
+    color: black;
+  }
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown .dropbtn {
+    border: none;
+    background-color: white;
+  }
+  .dropdown-content a:hover {
+    transition: 1.5s;
+    background-color: #ff6600;
+    color: white;
+  }
+  nav a:hover{
+    color:#ff6600;
+    transition: 1s;
+  }
+  .dropdown:hover .dropdown-content {display: block;}
+
+  .dropdown:hover .dropbtn {background-color: transparent;}
+  div img {
+    width: calc(1.1vw + 15.7px);
+  }
+
+}
+@media (max-width: 700px) {
+  header nav {
+    display: none;
+  }
+  header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header div {
+    gap: 24px;
+  }
+}
+
+.main_wrapper {
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(16.4vw - 46.6px);
+  margin-top: 40px;
+  background-color: #e3f1ff;
+  display: flex;
+  flex-direction: row;
+  border-radius: 12px;
+  opacity: 0; /* Скрыто по умолчанию */
+  transform: translateY(30px); /* Сдвиг вниз */
+  animation: fadeIn 0.8s ease forwards; /* Анимация появления */
+}
+
+/* Анимация для .main_wrapper */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Начальное состояние */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Плавный переход в исходную позицию */
+  }
+}
+
+.left_side {
+  border-radius: 12px 0px 0px 12px;
+  overflow: hidden; /* Чтобы изображение не выходило за границы */
+  opacity: 0;
+  transform: translateX(-30px); /* Сдвиг влево */
+  animation: slideInLeft 0.8s ease forwards;
+  animation-delay: 0.2s; /* Задержка, чтобы сработало позже */
+}
+
+/* Анимация для .left_side */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.left_side img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease; /* Эффект увеличения при наведении */
+}
+
+.left_side img:hover {
+  transform: scale(1.05); /* Небольшое увеличение изображения при наведении */
+}
+
+.right_side {
+  width: calc(3.4vw + 269px);
+  margin-left: calc(3vw + 20.3px);
+  margin-top: 115px;
+  margin-right: calc(0.75vw + 29.1px);
+  margin-bottom: 115px;
+  display: flex;
+  flex-direction: column;
+  gap: calc(0.37vw + 6.59px);
+  opacity: 0;
+  transform: translateX(30px); /* Сдвиг вправо */
+  animation: slideInRight 0.8s ease forwards;
+  animation-delay: 0.4s; /* Задержка для появления позже */
+}
+
+/* Анимация для .right_side */
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.trend {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.trend h4 {
+  font-family: "Inter", sans-serif;
+  font-size: calc(0.37vw + 8.59px);
+  font-weight: 500;
+  line-height: 18px;
+  color: #000000;
+  transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.trend h4:hover {
+  color: #ff6600; /* Изменение цвета текста при наведении */
+}
+
+.trend img {
+  width: calc(0.37vw + 14.59px);
+  transition: transform 0.3s ease; /* Эффект увеличения при наведении */
+}
+
+.trend img:hover {
+  transform: scale(1.1); /* Небольшое увеличение изображения при наведении */
+}
+
+.right_side h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: calc(1.4vw + 24.7px);
+  font-weight: 700;
+  line-height: 56px;
+  text-align: left;
+  color: #000000;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.5s; /* Появляется позже */
+}
+
+/* Анимация для .right_side h1 */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.right_side p {
+  font-family: "Inter", sans-serif;
+  font-size: calc(0.37vw + 12.59px);
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.2px;
+  text-align: left;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.6s; /* Появляется позже */
+}
+
+@media (max-width: 700px) {
+  .right_side {
+    padding-top: 32px;
+    padding-bottom: 72px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 1280px) {
+  .main_wrapper {
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .main_wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width:900px) {
+    .right_side {
+        margin-top: 50px;
+    }
+}
+.food_container {
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  margin-top: calc(4.13vw + 20.5px);
+  display: flex;
+  flex-direction: column;
+}
+.food_container h1 {
+  width: 100%;
+  font-family: "Playfair Display", sans-serif;
+  font-size: calc(1.12vw + 19.7px);
+  font-weight: 700;
+  line-height: 44px;
+  text-align: left;
+}
+.main_food {
+  width: 100%;
+  margin-top: calc(0.99vw + 18.3px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.main_food div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #333; /* Темный цвет текста */
+  background-color: #fff; /* Фон карточки */
+  border: 1px solid #e0e0e0; /* Легкая граница */
+  border-radius: 12px; /* Скругление углов */
+  padding: 16px; /* Внутренние отступы */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные эффекты */
+}
+
+.main_food div:hover {
+  transform: translateY(-10px); /* Подъем карточки */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Увеличенная тень при наведении */
+  cursor: pointer;
+}
+
+.main_food div img {
+  max-width: 100%; /* Ширина изображения */
+  border-radius: 12px; /* Скругление углов изображения */
+  object-fit: cover; /* Соответствие соотношению сторон */
+  transition: 1s;
+}
+
+.main_food div h2 {
+  font-size: 1.75em; /* Увеличенный размер заголовка */
+  margin: 0; /* Убираем отступы */
+  font-weight: bold; /* Жирный текст */
+  color: #2c3e50; /* Темный цвет заголовка */
+}
+
+
+
+
+.food_container .food {
+  width: 100%;
+}
+.food_container .stars {
+  width: 96px;
+}
+.food_container div span {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
+}
+
+
+@media (max-width: 500px) {
+  .list {
+    display: block;
+  }
+  .main_food {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+/* Здесь идет двойная адаптивка */
+@media (max-width: 800px) {
+    .right_side {
+        margin-top: 30px;
+    }
+    
+}
+
+@media (max-width: 649px) {
+    .right_side {
+        padding-top: 0px;
+    }
+}
+/* Экран категорий */
+.categories {
+  width: calc(71.8vw + 75.6px);
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  margin-top: calc(4.13vw + 20.5px);
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.categories h1 {
+  font-family: "Playfair Display";
+  font-size: calc(1.12vw + 19.7px);
+  font-weight: 700;
+  line-height: 44px;
+  text-align: left;
+}
+.categories_block {
+  width: 100%;
+  margin-top: calc(0.99vw + 18.3px);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+.categories_block div {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9; /* Светлый фон */
+  border: 1px solid #ddd; /* Легкая граница */
+  border-radius: 10px; /* Скругление углов */
+  padding: 20px; /* Внутренние отступы */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные эффекты */
+  cursor: pointer; /* Указатель при наведении */
+}
+
+.categories_block div:hover {
+  transform: translateY(-5px); /* Подъем блока при наведении */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Тень при наведении */
+}
+
+.categories_block div img {
+  width: 100%;
+  border-radius: 10px; /* Скругление углов изображения */
+  object-fit: cover; /* Соответствие соотношению сторон */
+  transition: transform 0.3s ease; /* Плавный эффект увеличения */
+}
+
+.categories_block div img:hover {
+  transform: scale(1.05); /* Увеличение изображения при наведении */
+}
+
+.categories_block div h3 {
+  font-family: "Inter", sans-serif; /* Поддержка запасного шрифта */
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px; /* Высота строки для удобочитаемости */
+  text-align: center;
+  color: #000000;
+  margin: 0; /* Убираем отступы */
+}
+
+
+@media (max-width: 500px) {
+    .categories_block {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* registration page */
+
+.registration_form {
+  background-color: #ffd7c9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration_form_wrapper {
+  margin-top: calc(4.5vw + 39px);
+  margin-bottom: calc(5.35vw + 33.9px);
+  width: calc(17.3vw + 279px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Плавный переход */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+.registration_form_wrapper h1 {
+  font-family: "Playfair Display", sans-serif;
+  font-size: calc(3.75vw + 21.9px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-align: center;
+  color: #000000;
+}
+
+.registration_form_wrapper h3 {
+  font-family: "Inter", sans-serif;
+  font-size: calc(0.75vw + 13.1px);
+  text-align: center;
+  color: #000000;
+}
+
+.registration_form_wrapper form {
+  display: flex;
+  flex-direction: row;
+}
+
+.registration_form_wrapper input {
+  text-align: center;
+  border: none;
+  border-radius: 5px; /* Скругление углов */
+  width: 100%;
+  height: 68px;
+  padding: 0 10px; /* Внутренние отступы */
+  font-size: 16px; /* Размер шрифта */
+  transition: border-color 0.3s ease; /* Плавный переход для границы */
+}
+
+.registration_form_wrapper input:focus {
+  border-color: #FF642F; /* Цвет границы при фокусе */
+  outline: none; /* Убираем стандартный обвод при фокусе */
+}
+
+.registration_form_wrapper button {
+  width: 127px;
+  height: 68px; /* Высота кнопки совпадает с полем ввода */
+  background-color: #FF642F; /* Цвет кнопки */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Скругление углов кнопки */
+  font-size: 16px; /* Размер шрифта */
+  cursor: pointer; /* Указатель при наведении */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Плавные эффекты */
+}
+
+.registration_form_wrapper button:hover {
+  background-color: #e55b24; /* Темнее цвет кнопки при наведении */
+  transform: translateY(-2px); /* Подъем кнопки при наведении */
+}
+
+.registration_form_wrapper button:active {
+  transform: translateY(0); /* Возврат кнопки на место при нажатии */
+}
+
+.registration_form_wrapper h5 {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #000000;
+}
+
+.registration_form_wrapper a {
+  text-decoration: none;
+  border-bottom: 1px solid red;
+}
+
+.hand_collection {
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  margin-top: calc(4.13vw + 20.5px);
+  display: flex;
+  flex-direction: column;
+}
+.hand_collection h1 {
+font-family: 'Playfair Display', sans-serif;
+font-size: calc(2.44vw + 14.84px);
+font-weight: 700;
+line-height: 60px;
+text-align: left;
+color:#000000;
+}
+.hand_collection_container {
+  width: 100%;
+  margin-top: calc(0.99vw + 18.3px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.main_collection {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрируем элементы по горизонтали */
+  background-color: #fff; /* Белый фон */
+  border: 1px solid #ddd; /* Легкая граница */
+  border-radius: 12px; /* Скругление углов */
+  padding: 20px; /* Внутренние отступы */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные эффекты */
+
+}
+
+.main_collection:hover {
+  transform: translateY(-5px); /* Подъем карточки при наведении */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Увеличенная тень при наведении */
+
+  cursor: pointer;
+}
+
+.main_collection img {
+  max-width: 100%; /* Установка ширины изображения */
+  border-radius: 12px; /* Скругление углов изображения */
+  object-fit: cover; /* Соответствие соотношению сторон */
+}
+
+.mini_blocks {
+  text-align: center; /* Центрирование текста */
+  margin-top: 15px; /* Отступ сверху */
+}
+
+.mini_blocks h3 {
+  font-family: "Inter", sans-serif; /* Поддержка запасного шрифта */
+  font-size: 1.5em; /* Размер заголовка */
+  color: #2c3e50; /* Темный цвет заголовка */
+  margin: 0; /* Убираем отступы */
+}
+
+.mini_blocks button {
+  background-color: #FF642F; /* Цвет кнопки */
+  color: white; /* Цвет текста кнопки */
+  border: none; /* Без границы */
+  border-radius: 5px; /* Скругление углов кнопки */
+  padding: 10px 15px; /* Отступы внутри кнопки */
+  cursor: pointer; /* Указатель при наведении */
+  font-size: 16px; /* Размер шрифта */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Плавные эффекты */
+}
+
+.mini_blocks button:hover {
+  background-color: #e55b24; /* Темнее цвет кнопки при наведении */
+  transform: translateY(-2px); /* Подъем кнопки при наведении */
+}
+
+
+.hand_collection_container {
+  width: 100%;
+}
+  @media (max-width:500px) {
+    .hand_collection_container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .main_collection {
+      width: 100%;
+    }
+      }
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* здесь задаем затемнение заднего фона */
+  z-index: 999;
+  display: none;
+}
+.exit img {
+  width: 15px;
+  height: 15px;
+}
+.menu {
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:flex-start;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* здесь задаем прозрачность и цвет самого окна */
+  border-radius:10px;
+}
+.menu a {
+font-family: 'Inter';
+font-size: 16px;
+font-weight: 500;
+line-height: 15px;
+text-align: left;
+text-decoration: none;
+color:#000000;
+}
+.menu a:hover {
+  color:#FF642F
+}
+.latest_recipes{
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  margin-top: calc(4.13vw + 20.5px);
+  margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.latest_recipes h1 {
+font-family: 'Playfair Display', sans-serif;
+font-size: calc(1.12vw + 19.7px);
+font-weight: 700;
+line-height: 44px;
+text-align: left;
+color: #000000;
+}
+.grid_container {
+  margin-top: calc(0.99vw + 18.3px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+@media (max-width:600px) {
+  .grid_container {
+    margin-top: calc(0.99vw + 18.3px);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+.grid_container div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #fff; /* Белый фон карточки */
+  border: 1px solid #ddd; /* Легкая граница */
+  border-radius: 10px; /* Скругление углов */
+  padding: 15px; /* Внутренние отступы */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные эффекты */
+  cursor: pointer; /* Указатель при наведении */
+}
+
+.grid_container div:hover {
+  transform: translateY(-5px); /* Подъем карточки при наведении */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Увеличенная тень при наведении */
+}
+
+.grid_container div img {
+  width: 100%;
+  border-radius: 8px; /* Скругление углов изображения */
+  object-fit: cover; /* Соответствие соотношению сторон */
+  transition: transform 0.3s ease; /* Плавный эффект увеличения */
+}
+
+.grid_container div img:hover {
+  transform: scale(1.05); /* Увеличение изображения при наведении */
+}
+
+.grid_container div h3 {
+  font-family: 'Inter', sans-serif; /* Поддержка запасного шрифта */
+  font-size: calc(0.56vw + 9.88px);
+  font-weight: 600;
+  line-height: 28px;
+  text-align: left;
+  color: #333; /* Темный цвет текста */
+  margin: 0; /* Убираем отступы */
+}
+
+.drop_down {
+  margin-top: calc(3.38vw + 31.3px);
+  width: calc(6.38vw + 94px);
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ddd; /* Легкая граница */
+  background-color: white; /* Белый фон */
+  font-family: 'Inter', sans-serif; /* Поддержка запасного шрифта */
+  font-size: calc(0.37vw + 12.59px);
+  font-weight: 500;
+  line-height: 21.78px;
+  letter-spacing: -0.2px;
+  text-align: center;
+  color: #000000;
+  padding: 10px; /* Внутренние отступы */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Плавные эффекты */
+  cursor: pointer; /* Указатель при наведении */
+}
+
+.drop_down:focus {
+  border-color: #FF642F; /* Цвет границы при фокусе */
+  outline: none; /* Убираем стандартный обвод при фокусе */
+  box-shadow: 0 0 5px rgba(255, 100, 47, 0.5); /* Тень при фокусе */
+}
+
+.drop_down:hover {
+  border-color: #FF642F; /* Цвет границы при наведении */
+}
+
+.drop_down option {
+  background-color: white; /* Фон для опций */
+  color: #000; /* Цвет текста для опций */
+}
+
+/* Подвал */
+footer {
+  padding-left: calc(14vw - 37.8px);
+  padding-right: calc(14vw - 37.8px);
+  padding-top: calc(4.13vw + 20.5px);
+  background-color: #F9F9F9;
+}
+
+.footer_parent_1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+@media (max-width: 500px) {
+  .footer_parent_1 {
+    flex-wrap: wrap; /* Обеспечивает перенос элементов на меньших экранах */
+  }
+}
+
+.logo_last {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.logo_last img {
+  width: 128.78px;
+  height: 39.94px;
+}
+
+.logo_last p {
+  width: 100%;
+  height: 96px;
+  color: #7F7F7F;
+}
+
+.navigation_last {
+  width: 450px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media (max-width: 500px) {
+  .navigation_last {
+    margin-top: 28px;
+  }
+}
+
+.navigation_last ul {
+  width: 100%;
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  text-align: left;
+  color: #000000;
+}
+
+.navigation_last ul a {
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23px;
+  text-align: left;
+  color: #7F7F7F;
+  transition: color 0.3s; /* Плавный переход цвета */
+}
+
+.navigation_last ul a:hover {
+  color: #FF642F; /* Изменение цвета при наведении */
+}
+
+.footer_parent_2 {
+  margin-top: 118px;
+  padding-bottom: 40px;
+  border-top: 1px solid grey;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer_parent_2 h4 {
+  font-family: 'Inter';
+  font-size: 10px;
+  line-height: 16px;
+  text-align: left;
+  color: #7F7F7F;
+  transition: color 0.3s; /* Плавный переход цвета */
+}
+
+.footer_parent_2 h4:hover {
+  color: #FF642F; /* Изменение цвета при наведении */
+}
+
+/* Определение ключевых кадров для анимации появления */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+
+/* // 2 Страница */
+.full_guide {
+  margin-top: calc(4.13vw + 20.5px);
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+/* Стили для заголовка */
+.full_guide h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: calc(2.81vw + 19.4px);
+  font-weight: 700;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.2s; /* Задержка для последовательного появления заголовка */
+  transition: color 0.3s ease; /* Плавный переход для цвета */
+}
+
+/* Стили для профиля */
+.profile {
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.4s; /* Задержка для последовательного появления */
+}
+
+/* Элементы внутри профиля */
+.profile div {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.6s; /* Задержка для последовательного появления */
+}
+.profile div img:nth-child(1) {
+  width: 20px;
+}
+/* Стили для статьи */
+.full_guide .article {
+  font-size: 20px;
+  margin-top: calc(0.65vw + 30.5px);
+  color: #000000;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.8s; /* Задержка для последовательного появления */
+}
+
+/* Горизонтальная линия */
+.line_1 {
+  width: 100%;
+}
+
+/* Определение ключевых кадров для анимации появления */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+/* Эффекты при наведении на заголовок и элементы статьи */
+.full_guide h1:hover,
+.full_guide .article:hover {
+  color: #FF642F; /* Изменение цвета при наведении */
+  cursor: pointer; /* Указатель при наведении */
+}
+
+
+.video_1 {
+  height: calc(34.3vw + 129.1px);
+  margin-top: 20px;
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  background-image: url(../img/video.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; /* Скругление углов */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные эффекты */
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+.player {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* Круглая форма плеера */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень для плеера */
+  transition: transform 0.3s ease; /* Плавные эффекты для плеера */
+}
+
+.player:hover {
+  transform: scale(1.1); /* Увеличение плеера при наведении */
+}
+
+/* Определение ключевых кадров для анимации появления */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+.before {
+  margin-top: calc(3vw + 20.7px);
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+/* Стили для заголовка */
+.before h1 {
+  width: 100%;
+  font-family: 'Playfair Display', sans-serif;
+  font-size: calc(1.97vw + 16.6px);
+  font-weight: 700;
+  line-height: 56px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.2s; /* Задержка для последовательного появления заголовка */
+  transition: color 0.3s ease; /* Плавный переход для цвета */
+}
+
+/* Стили для абзаца */
+.before p {
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  line-height: 37px;
+  letter-spacing: -0.20000000298023224px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.4s; /* Задержка для последовательного появления */
+  transition: color 0.3s ease; /* Плавный переход для цвета */
+}
+
+/* Определение ключевых кадров для анимации появления */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+/* Эффекты при наведении на заголовок и абзац */
+.before h1:hover,
+.before p:hover {
+  color: #FF642F; /* Изменение цвета при наведении */
+  cursor: pointer; /* Указатель при наведении */
+}
+
+
+.basics {
+  margin-top: calc(4.13vw + 20.5px);
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  display: flex;
+  flex-direction: row;
+  gap: 49px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  border: 1px solid #ddd; /* Легкая граница */
+  border-radius: 10px; /* Скругление углов */
+  padding: 20px; /* Внутренние отступы */
+  background-color: #f9f9f9; /* Светлый фон */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+}
+
+@media(max-width:1440px) {
+  .basics {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width:500px) {
+  .basics {
+    flex-wrap: wrap;
+  }
+}
+
+.left_text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.2s; /* Задержка для последовательного появления */
+}
+
+.left_text h1 {
+  font-size: calc(1.97vw + 16.6px);
+  font-family: 'Playfair Display', sans-serif;
+  font-weight: 700;
+  line-height: 56px;
+  color: #FF642F; /* Цвет заголовка */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Легкая тень для текста */
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.4s; /* Задержка для последовательного появления заголовка */
+}
+
+.left_text p {
+  width: calc(16.5vw + 283.02px);
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 37px;
+  color: #333; /* Темный цвет текста */
+  background-color: #ffffff; /* Белый фон для текста */
+  padding: 10px; /* Внутренние отступы */
+  border-radius: 5px; /* Скругление углов текста */
+  border: 1px solid #ddd; /* Легкая граница */
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.6s; /* Задержка для последовательного появления текста */
+}
+
+@media (max-width:600px) {
+  .left_text p {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    line-height: 37px;
+    color: #000000;
+  }
+}
+
+.right_testo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.8s; /* Задержка для последовательного появления блока */
+}
+
+.right_testo img {
+  width: 100%;
+  border-radius: 8px; /* Скругление углов изображения */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для изображения */
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 1s; /* Задержка для последовательного появления изображения */
+}
+
+/* Определение ключевых кадров для анимации появления */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+.thinking {
+  margin-top: calc(3vw + 20.7px);
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+.thinking h1 {
+  border-top: 1px solid #E8E8E8;
+  font-family: 'Playfair Display', sans-serif;
+  font-size: calc(1.40vw + 39.7px);
+  font-weight: 700;
+  line-height: 72px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.2s; /* Задержка для последовательного появления заголовка */
+}
+
+.thinking p {
+  font-family: 'Inter', sans-serif;
+  font-size: calc(0.75vw + 13.1px);
+  font-weight: 400;
+  line-height: 38px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.4s; /* Задержка для последовательного появления текста */
+}
+
+/* Определение ключевых кадров для анимации появления */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+.tatu {
+  margin-top: calc(3vw + 20.7px);
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  display: flex;
+  flex-direction: column;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+.tatu div {
+  margin-top: 33px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  border: 1px solid #ddd; /* Легкая граница */
+  border-radius: 10px; /* Скругление углов */
+  padding: 20px; /* Внутренние отступы */
+  background-color: #fff; /* Белый фон для содержимого */
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.2s; /* Задержка для последовательного появления */
+}
+
+.tatu h1 {
+  font-size: calc(1.97vw + 16.6px);
+  font-family: 'Playfair Display', sans-serif;
+  font-weight: 700;
+  color: #000; /* Цвет текста заголовка */
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.4s; /* Задержка для последовательного появления */
+}
+
+.tatu div p {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 37px;
+  letter-spacing: -0.2px;
+  text-align: left;
+  color: #000; /* Цвет текста абзаца */
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.6s; /* Задержка для последовательного появления */
+}
+
+/* Определение ключевых кадров для анимации появления */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+.wrapper_blue {
+  background-color: #F9F9F9; /* Фоновый цвет */
+  margin-top: calc(3vw + 20.7px);
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  border: 1px solid #ddd; /* Легкая граница */
+  border-radius: 10px; /* Скругление углов */
+  padding: 20px; /* Внутренние отступы */
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+.main_wrapper_blue {
+  width: 100%;
+  padding-top: calc(4.22vw + 16.1px);
+  padding-bottom: calc(4.22vw + 16.1px);
+  padding-left: calc(5.25vw + 4.28px);
+  padding-right: calc(5.25vw + 4.28px);
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.2s; /* Задержка для последовательного появления */
+}
+
+.editors {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.main_wrapper_blue p {
+  margin-top: 29px;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 37px;
+  letter-spacing: -0.2px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.4s; /* Задержка для последовательного появления */
+}
+
+.main_wrapper_blue .socials_part2 {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.6s; /* Задержка для последовательного появления */
+}
+
+/* Определение ключевых кадров для анимации появления */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+.comments {
+  margin-top: calc(3vw + 20.7px);
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+.comments h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: calc(2.81vw + 19.4px);
+  font-weight: 700;
+  line-height: 72px;
+  text-align: left;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.2s; /* Задержка для последовательного появления заголовка */
+}
+
+.line {
+  width: 100%;
+}
+
+.main_comments {
+  margin-top: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 21px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.4s; /* Задержка для последовательного появления */
+}
+
+.face_part {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.face_part div img {
+  width: 48px;
+}
+
+.minutes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.comments_part {
+  padding-left: calc(2.25vw + 40.54px);
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.6s; /* Задержка для последовательного появления */
+}
+
+.comments_part p {
+  width: calc(50.1vw + 49.9px);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.8s; /* Задержка для последовательного появления */
+}
+
+.comments_images {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.comments_images div {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+}
+
+.main_comments_2,
+.main_comments_3 {
+  margin-left: calc(6vw - 6.53px);
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 21px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 1s; /* Задержка для последовательного появления */
+}
+
+.load_1 {
+  margin-left: calc(31.3vw - 49.6px);
+  margin-top: 43px;
+  margin-bottom: 80px;
+  height: 48px;
+  padding: 13px 48px;
+  border-radius: 4px;
+  border: 1px solid black;
+  text-align: center;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 1.2s; /* Задержка для последовательного появления */
+}
+
+@media (max-width: 500px) {
+  .load_1 {
+    margin-left: 27px;
+  }
+}
+
+/* Определение ключевых кадров для анимации появления */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+.write_comments {
+  margin-top: calc(3vw + 20.7px);
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  margin-bottom: 80px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+.primary_1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.primary h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 37px;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.2s; /* Задержка для последовательного появления заголовка */
+}
+
+.primary_1 a {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  text-decoration: none;
+  color: #FF642F;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.4s; /* Задержка для последовательного появления */
+}
+
+.secondary_1 {
+  background-color: #F9F9F9;
+  margin-top: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: calc(6.85vw - 7.70px);
+  flex-wrap: wrap;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.6s; /* Задержка для последовательного появления */
+}
+
+.textarea_1 {
+  background-color: #F9F9F9;
+  width: calc(42.8vw + 119.4px);
+  height: 250px;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  outline: none;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 0.8s; /* Задержка для последовательного появления */
+}
+
+.post {
+  background-color: #FF642F;
+  width: 219px;
+  height: 48px;
+  padding: 13px 48px;
+  border-radius: 4px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21.78px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: center;
+  border: none;
+  cursor: pointer; /* Указатель при наведении */
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+  animation-delay: 1s; /* Задержка для последовательного появления */
+}
+
+/* Определение ключевых кадров для анимации появления */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+/* Добавление эффекта при наведении на кнопку поста */
+.post:hover {
+  background-color: #e55c24; /* Темнее на 10% при наведении */
+  transform: scale(1.05); /* Увеличение при наведении */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Плавный переход */
+}
+
+
+.video_2 {
+  height: calc(34.3vw + 129.1px);
+  margin-top: 20px;
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  background-image: url(./img/cake\ video.png); /* Исправлен путь к изображению */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px; /* Закругленные углы */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта глубины */
+  transition: transform 0.3s, box-shadow 0.3s; /* Плавные переходы */
+}
+
+.video_2:hover {
+  transform: scale(1.02); /* Увеличение при наведении */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Более яркая тень при наведении */
+}
+
+.player {
+  width: calc(6.76vw + 30.6px);
+  height: calc(6.76vw + 30.6px);
+  border: 2px solid #FF642F; /* Рамка вокруг плеера */
+  border-radius: 50%; /* Круглая форма плеера */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для эффекта глубины */
+  transition: transform 0.3s; /* Плавный переход */
+}
+
+.player:hover {
+  transform: scale(1.05); /* Увеличение плеера при наведении */
+}
+
+.about_ingredients {
+  margin-top: 40px;
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+}
+.left_side_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.printers {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+.printers div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.printers div span {
+font-family: 'Inter', sans-serif;
+font-size: 12px;
+line-height: 15px;
+}
+.pens {
+  display: flex;
+  flex-direction: row;
+}
+.pens div {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.pens div img {
+width: 20px;
+height: 20px;
+}
+
+.anIngredients {
+  width: calc(9.85vw + 253px);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.anIngredients h1 {
+font-family: 'Playfair Display', sans-serif;
+font-size: 30px;
+font-weight: 700;
+line-height: 37px;
+text-align: left;
+}
+.checkBoxes_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.checkBoxes_1 div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+.checkBoxes_1 span {
+font-family: 'Inter', sans-serif;
+font-size: 18px;
+font-weight: 400;
+line-height: 28px;
+letter-spacing: -0.20000000298023224px;
+text-align: left;
+}
+.checkBoxes_2 {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+.instructions {
+  margin-top: 40px;
+  width: calc(33.1vw + 187.7px);
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция смещения */
+  animation: fadeIn 0.5s forwards; /* Применение анимации */
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px); /* Сдвиг вниз */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0); /* Возвращаем в начальную позицию */
+  }
+}
+
+.instructions h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 37px;
+  text-align: left;
+  opacity: 0; /* Начальная непрозрачность для заголовка */
+  transform: translateY(10px); /* Начальная позиция смещения заголовка */
+  animation: fadeIn 0.5s forwards; /* Применение анимации */
+  animation-delay: 0.2s; /* Задержка анимации для заголовка */
+}
+
+.instructions ol {
+  list-style-type: decimal; /* Тип маркера - цифры */
+  list-style-position: inside; /* Положение маркера внутри элемента */
+  margin-top: 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  opacity: 0; /* Начальная непрозрачность для списка */
+  transform: translateY(10px); /* Начальная позиция смещения списка */
+  animation: fadeIn 2s forwards; /* Применение анимации */
+  animation-delay: 0.4s; /* Задержка анимации для списка */
+}
+
+.line {
+  width: 1px;
+}
+@media (max-width:600px) {
+  .line {
+    display: none;
+  }
+  .about_ingredients {
+    margin-top: 40px;
+    margin-left: calc(14vw - 37.8px);
+    margin-right: calc(14vw - 37.8px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width:600px) { 
+  .right_side_1 {
+margin-top: 40px;
+  }
+}
+.right_side_1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.nutr_facts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #F9F9F9;
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Легкая тень для блока */
+}
+.nutr_facts_2{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.nutr_facts_2 div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #E8E8E8;
+}
+.nutr_facts_2 div span {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+}
+.fresh_wrapper {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.fresh_wrapper h1 {
+font-family: 'Playfair Display', sans-serif;
+font-size: 30px;
+font-weight: 700;
+line-height: 37px;
+text-align: left;
+}
+.fresh {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 16px;
+}
+.fresh div {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.fresh div img {
+  width: 96px;
+}
+.contacts_with {
+  margin-top: 40px;
+  padding: 20px;
+  width: 100%;
+  background-color: #FFD7C9;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.contacts_with h1 {
+font-family: 'Playfair Display', sans-serif;
+font-size: 36px;
+font-weight: 700;
+line-height: 44px;
+text-align: center;
+}
+.contacts_with h2 {
+font-family: 'Inter', sans-serif;
+font-size: 16px;
+font-weight: 300;
+line-height: 24px;
+text-align: center;
+}
+.contacts_with input {
+width: 292px;
+height: 48px;
+top: 159px;
+left: 6px;
+padding: 13px 122px 11px 16px;
+border: none;
+outline: none;
+content: url(./img/twitter.png);
+}
+.contacts_with button {
+  background-color: #FF642F;
+  color: white;
+width:292px;
+height: 48px;
+padding: 13px 125px 13px 125px;
+gap: 10px;
+border-radius: 4px;
+border: none;
+}
+.contacts_with span {
+font-family: 'Inter', sans-serif;
+font-size: 10px;
+line-height: 16px;
+text-align: center;
+border-bottom: 1px solid red;
+} 
+.made_this {
+    margin-top: 40px;
+    margin-left: calc(14vw - 37.8px);
+    margin-right: calc(14vw - 37.8px);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.made_this h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: calc(2.81vw + 19.4px);
+  font-weight: 700;
+  line-height: 72px;
+}
+.made_this button {
+background-color: white;
+width: 271px;
+height: 48px;
+padding: 13px 48px 13px 48px;
+border-radius: 4px;
+border: 1px solid black;
+}
+
+
+/* 4 Страница */
+.about {
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(16.4vw - 46.6px);
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.about h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: calc(1.12vw + 19.7px);
+  font-weight: 700;
+  line-height: 44px;
+  text-align: left;
+  color: #333333; /* Цвет текста для лучшей читаемости */
+  margin: 0; /* Убираем стандартные отступы */
+  padding-bottom: 10px; /* Добавляем отступ снизу для визуального отделения от следующего элемента */
+  border-bottom: 2px solid #FF642F; /* Подчеркивание для акцента */
+  transition: color 0.3s, border-color 0.3s; /* Плавные переходы для эффектов */
+}
+
+/* Эффект при наведении на заголовок */
+.about h1:hover {
+  color: #FF642F; /* Изменение цвета текста при наведении */
+  border-color: #E0E0E0; /* Изменение цвета подчеркивания при наведении */
+}
+
+.group {
+  margin-top: 30px;
+}
+/* Заголовок */
+.group h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: calc(3.38vw + 11.3px);
+  font-weight: 700;
+  text-align: left;
+  line-height: 70px !important;
+  margin: 0;
+  transition: color 0.3s ease, transform 0.3s ease; /* Плавный переход цвета и трансформации */
+}
+
+/* Эффект при наведении на заголовок */
+.group h1:hover {
+  color: #0073e6; /* Изменение цвета заголовка при наведении */
+  transform: scale(1.05); /* Увеличение заголовка при наведении */
+}
+
+/* Изображение */
+.group img {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 10px; /* Закругление углов изображения */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный эффект трансформации и тени */
+}
+
+/* Эффект при наведении на изображение */
+.group img:hover {
+  transform: scale(1.05); /* Увеличение изображения при наведении */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Добавление тени при наведении */
+}
+
+/* Абзац */
+.group p {
+  margin-top: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: calc(0.93vw + 10.47px);
+  line-height: 38px;
+  text-align: left;
+  color: #000000;
+  transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+/* Эффект при наведении на абзац */
+.group p:hover {
+  color: #555555; /* Изменение цвета текста при наведении */
+}
+
+/* Анимация появления текста и изображения */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Элемент появляется снизу */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Применение анимации к элементам при загрузке */
+.group h1, .group p, .group img {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-in-out forwards; /* Анимация появления */
+  animation-delay: 0.2s; /* Задержка анимации для плавного эффекта */
+}
+
+.simple {
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(16.4vw - 46.6px);
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* Контейнер */
+.simple_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Эффект при наведении на контейнер */
+.simple_1:hover {
+  transform: translateY(-10px); /* Поднимаем блок */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усиливаем тень */
+}
+
+/* Заголовок */
+.simple_1 h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: calc(3.38vw + 11.3px);
+  font-weight: 700;
+  text-align: left;
+  margin: 0;
+  transition: color 0.3s ease, transform 0.3s ease; /* Плавный переход цвета и трансформации */
+}
+
+/* Эффект при наведении на заголовок */
+.simple_1 h1:hover {
+  color: #0073e6; /* Изменяем цвет заголовка при наведении */
+  transform: scale(1.05); /* Увеличиваем заголовок немного при наведении */
+}
+
+/* Абзац */
+.simple_1 p {
+  font-family: 'Inter', sans-serif;
+  font-size: calc(0.93vw + 10.47px);
+  line-height: 38px;
+  text-align: left;
+  color: #333333;
+  margin: 0;
+  transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении на абзац */
+.simple_1 p:hover {
+  color: #555555; /* Изменяем цвет текста при наведении */
+}
+
+/* Анимация при появлении элемента при прокрутке страницы */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Элемент появляется снизу */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Применяем анимацию к контейнеру при загрузке страницы */
+.simple_1 {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-in-out forwards; /* Анимация появления */
+}
+
+/* Контейнер */
+.simple_2 {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Добавим отступы между элементами */
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Плавные переходы */
+}
+
+/* Эффект при наведении на контейнер */
+.simple_2:hover {
+  transform: translateY(-10px); /* Поднимаем блок при наведении */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усиливаем тень */
+}
+
+/* Изображение */
+.simple_2 img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные эффекты */
+}
+
+/* Эффект при наведении на изображение */
+.simple_2 img:hover {
+  transform: scale(1.05); /* Небольшое увеличение изображения */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Добавляем тень к изображению при наведении */
+}
+
+/* Анимация появления контейнера при прокрутке страницы */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px); /* Элемент появляется слева */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Применяем анимацию к контейнеру при загрузке */
+.simple_2 {
+  opacity: 0;
+  animation: fadeInRight 0.8s ease-in-out forwards; /* Анимация появления */
+}
+
+@media (max-width:900px) {
+  .simple{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.team {
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(16.4vw - 46.6px);
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.team h1 {
+font-family: 'Playfair Display', sans-serif;
+font-size: calc(3.38vw + 11.3px);
+font-weight: 700;
+text-align: left;
+}
+.again_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Карточка */
+.faces {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход */
+  padding: 20px;
+  max-width: 300px;
+  margin: 10px;
+  opacity: 0; /* Начальное состояние невидимости */
+  animation: fadeIn 0.8s ease-in-out forwards; /* Анимация появления */
+}
+
+/* Эффект при наведении на карточку */
+.faces:hover {
+  transform: translateY(-10px); /* Поднимаем карточку */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усиливаем тень */
+}
+
+/* Изображение */
+.faces img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease; /* Плавный переход */
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  animation-delay: 0.2s; /* Задержка появления изображения */
+}
+
+/* Эффект при наведении на изображение */
+.faces img:hover {
+  transform: scale(1.05); /* Небольшое увеличение изображения */
+}
+
+/* Заголовок */
+.faces h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+  margin: 10px 0 5px 0;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  animation-delay: 0.4s; /* Задержка появления заголовка */
+}
+
+/* Текст под заголовком */
+.faces span {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #7F7F7F;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  animation-delay: 0.6s; /* Задержка появления текста */
+}
+
+/* Добавляем легкую анимацию для текста при наведении на карточку */
+.faces:hover h4, 
+.faces:hover span {
+  color: #333; /* Изменяем цвет текста */
+  transition: color 0.3s ease;
+}
+
+/* Ключевые кадры для анимации появления */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Начинаем появление снизу */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Элемент на своём месте */
+  }
+}
+
+
+@media (max-width:600px) {
+  .again_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.countries {
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(16.4vw - 46.6px);
+  margin-top: calc(10.32vw - 8.73px);
+  margin-bottom: 60px;
+}
+.operatings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px; /* Внутренние отступы для улучшения визуального восприятия */
+  background-color: #F8F8F8; /* Светлый фон для выделения блока */
+  border: 1px solid #E0E0E0; /* Рамка вокруг блока */
+  border-radius: 8px; /* Закругленные углы */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для эффекта глубины */
+}
+
+.operatings h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.2px;
+  text-align: left;
+  color: #333333; /* Цвет текста заголовка */
+  margin: 0; /* Убираем стандартные отступы */
+}
+
+.operatings p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 23px;
+  text-align: left;
+  color: #666666; /* Цвет текста для абзаца */
+  margin: 0; /* Убираем стандартные отступы */
+}
+
+/* Эффект при наведении на .operatings */
+.operatings:hover {
+  background-color: #EAEAEA; /* Меняем фон при наведении */
+  transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+
+/* Последняя страница */
+.last_logo_5 {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+}
+.last_logo_5 img{
+  width: 255px;
+}
+.last_header {
+  border-bottom:1px solid rgba(128, 128, 128, 0.299);
+  border-top:1px solid rgba(128, 128, 128, 0.299);
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.last_header .last_photo {
+  width: 90px;
+}
+@media (max-width:1920px) {
+  .last_photo {
+    display: none;
+  }
+}
+@media (max-width:500px) {
+  .last_logo_5 {
+    display: none;
+  }
+  .last_photo {
+    display: block;
+    width: 91px;
+  }
+  .last_header {
+    margin-top: 1px;
+    gap: 0px;
+  }
+}
+.sakura {
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  margin-top: calc(4.13vw + 20.5px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+@media (max-width:500px) {
+  .sakura {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.b1 {
+  width: 100%;
+}
+.last_main {
+  border: 1px solid #E8E8E8;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: translateY(20px); /* Начальная позиция смещения */
+  animation: fadeIn 0.5s forwards; /* Применение анимации */
+  transition: box-shadow 0.3s, transform 0.3s; /* Плавный переход для рамки и масштабирования */
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px); /* Сдвиг вниз */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0); /* Возвращаем в начальную позицию */
+  }
+}
+
+.last_main:hover {
+  transform: translateY(-5px); /* Легкое поднятие карточки при наведении */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Добавление тени при наведении */
+}
+
+.last_title {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  opacity: 0; /* Начальная непрозрачность для заголовка */
+  transform: translateY(10px); /* Начальная позиция смещения заголовка */
+  animation: fadeIn 0.5s forwards; /* Применение анимации */
+  animation-delay: 0.2s; /* Задержка анимации для заголовка */
+}
+
+.last_title img {
+  width: 96px;
+  transition: transform 0.3s; /* Плавный переход для эффекта при наведении */
+}
+
+/* Эффект при наведении на изображение */
+.last_title img:hover {
+  transform: scale(1.1); /* Увеличение изображения при наведении */
+}
+
+/* Дополнительные стили для текста в заголовке */
+.last_title h1 {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.last_title p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+.registr {
+  height: 158px;
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  margin-top: calc(4.13vw + 20.5px);
+  background-color:#FFD7C9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items:center;
+}
+.register h1 {
+width: 412px;
+height: 74px;
+font-family: 'Playfair Display', sans-serif;
+font-size: 30px;
+font-weight: 700;
+line-height: 37px;
+text-align: left;
+}
+
+.registr div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+}
+.registr div input {
+  border:none;
+  outline: none;
+  width: 296px;
+  height: 59px;
+}
+.registr div button {
+  background-color:#FF642F;
+  border:none;
+  color:#F9F9F9;
+  width: 127px;
+  height: 59px;
+}
+
+.registration_form_2 {
+  background-color: #ffd7c9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width:1920px) {
+  .registration_form_2 {
+    display: none;
+  }
+}
+@media(max-width:500px) {
+  .registr {
+    display: none;
+  }
+  .registration_form_2 {
+    margin-top: 40px;
+    background-color: #ffd7c9;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.last_line {
+  width: 100%;
+}
+
+.last_main_content {
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  margin-top: calc(4.13vw + 20.5px);
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+.last_right_side {
+  width: 100%;
+}
+.last_left_side {
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  gap: 30px;
+}
+.last_left_side h1 {
+font-family: 'Playfair Display', sans-serif;
+font-size: calc(0.98vw + 16.7pxgr rgb );
+font-weight: 700;
+line-height: 37px;
+text-align: left;
+color:#000000;
+}
+.last_heading {
+  display: flex;
+  flex-direction: column;
+  border:1px solid #E8E8E8;
+}
+.last_heading img {
+  width: 100%;
+}
+.last_girl {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.last_girl img {
+  width: 96px;
+}
+.last_girl h1 {
+font-family: 'Inter', sans-serif;
+font-size: 30px;
+font-weight: 600;
+line-height: 37px;
+text-align: left;
+}
+.last_girl p {
+font-family: 'Inter', sans-serif;
+font-size: 18px;
+line-height: 28px;
+letter-spacing: -0.20000000298023224px;
+text-align: left;
+}
+.last_secondary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.first_block {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  gap: 5px;
+}
+.first_block img {
+  width: 36px;
+}
+.first_block span {
+font-family: 'Inter', sans-serif;
+font-size: 12px;
+line-height: 15px;
+text-align: left;
+}
+.second_block{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  gap: 30px;
+}
+.second_block img {
+  width: 16px;
+}
+.second_block span {
+font-family: 'Inter', sans-serif;
+font-size: 12px;
+line-height: 15px;
+text-align: left;
+}
+.second_block div {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  gap: 5px;
+}
+.food_cards {
+  margin-top: calc(4.13vw + 20.5px);
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  gap: 30px;
+}
+@media (max-width:500px) {
+  .food_cards {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .food_cards img {
+    width: 100%;
+  }
+}
+.last_food_cards {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.last_food_cards img {
+  width: 96px;
+}
+.last_food_cards h1 {
+font-family: 'Inter', sans-serif;
+font-size: 20px;
+font-weight: 600;
+line-height: 28px;
+letter-spacing: -0.20000000298023224px;
+text-align: left;
+}
+.first_block img {
+  width: 32px;
+}
+.second_block img {
+  width: 16px;
+}
+.line_3 {
+  width: 100%;
+}
+
+.tara {
+  width: 100%;
+  border:1px solid #E8E8E8;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+
+}
+.tara img {
+  width: 100px; 
+}
+.tara div {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  gap: 10px;
+}
+.tara div h1 {
+font-family: 'Inter', sans-serif;
+font-size: 24px;
+font-weight: 600;
+line-height: 38px;
+text-align: center;
+}
+.tara div p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  text-align: center;
+  color:#000000;
+}
+.tara div button {
+width: 119px;
+height: 29px;
+padding: 6px 24px 6px 24px;
+gap: 10px;
+border-radius: 2px 0px 0px 0px;
+border: 1px solid black;
+background-color:transparent;
+}
+.fresh_recipes {
+  margin-top: 40px;
+}
+.last_grids {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.last_grids div {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.last_grids div img {
+  width: 100%;
+}
+@media (max-width) {
+  
+}
+@media(max-width:900px) {
+  .last_main_content {
+    flex-wrap: wrap;
+  }
+  .tara {
+    width: 100%;
+  }
+}
+
+.insta_blog {
+  margin-top: 80px;
+}
+
+.insta_logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
+}
+.insta_logo img {
+  width: 102px;
+  height: 29px;
+}
+.insta_logo button {
+  width: 91px;
+  height: 29px;
+  top: 40px;
+  left: 235px;
+  padding: 6px 24px 6px 24px;
+  gap: 10px;
+  border-radius: 2px;
+  border: 1px solid black;
+  background-color:transparent;
+
+font-family: 'Inter', sans-serif;
+font-size: 14px;
+font-weight: 500;
+line-height: 16.94px;
+letter-spacing: -0.15555556118488312px;
+text-align: center;
+}
+.subscribers {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
+}
+.subscribers div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.subscribers div span:nth-child(1) {
+  font-weight: bold;
+font-family: 'Inter', sans-serif;
+font-size: 16px;
+font-weight: 600;
+line-height: 24px;
+text-align: left;
+}
+.subscribers div span:nth-child(2) {
+font-family: 'Inter', sans-serif;
+font-size: 12px;
+line-height: 15px;
+text-align: left;
+color:#7F7F7F;
+}
+.again_last_grids {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.again_last_grids img {
+  width: 100%;
+}
+
