@@ -34,9 +34,55 @@ header {
     gap: 40px;
   }
 
+  .burger-checkbox {
+    position: absolute;
+    visibility: hidden;
+  }
+  .burger {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border: none;
+    background: transparent;
+    width: 40px;
+    height: 26px;
+
+  }
+  .burger::before,
+  .burger::after {
+    content: '';
+    left: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: #000;
+  }
+  .burger::before {
+    top: 0;
+    box-shadow: 0 11px 0 #000;
+    transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
+  }
+  .burger::after {
+    bottom: 0;
+    transition: bottom .3s .15s, transform .3s;
+  }
+  .burger-checkbox:checked + .burger::before {
+    top: 11px;
+    transform: rotate(45deg);
+    box-shadow: 0 6px 0 rgba(0,0,0,0);
+    transition: box-shadow .15s, top .3s, transform .3s .15s;
+  }
+  .burger-checkbox:checked + .burger::after {
+    bottom: 11px;
+    transform: rotate(-45deg);
+    transition: bottom .3s, transform .3s .15s;
+  }
   .dropdown {
     position: relative;
     display: inline-block;
+  
   }
 
   .dropdown-content {
@@ -53,15 +99,18 @@ header {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-family: 'Inter', sans-serif;
   }
   .dropdown .dropbtn {
     border: none;
     background-color: white;
+    font-family: 'Inter', sans-serif;
   }
   .dropdown-content a:hover {
     transition: 1.5s;
     background-color: #ff6600;
     color: white;
+    font-family: 'Inter', sans-serif;
   }
   nav a:hover{
     color:#ff6600;
@@ -516,6 +565,9 @@ header {
   font-size: 16px; /* Размер шрифта */
   cursor: pointer; /* Указатель при наведении */
   transition: background-color 0.3s ease, transform 0.3s ease; /* Плавные эффекты */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .registration_form_wrapper button:hover {
@@ -743,10 +795,14 @@ color: #000000;
   margin-top: calc(3.38vw + 31.3px);
   width: calc(6.38vw + 94px);
   height: 48px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 4px;
   border: 1px solid #ddd; /* Легкая граница */
   background-color: white; /* Белый фон */
-  font-family: 'Inter', sans-serif; /* Поддержка запасного шрифта */
+  font-family: 'Inter', sans-serif; /* Поддержка 
+  запасного шрифта */
   font-size: calc(0.37vw + 12.59px);
   font-weight: 500;
   line-height: 21.78px;
@@ -775,6 +831,7 @@ color: #000000;
 
 /* Подвал */
 footer {
+  margin-top: 30px;
   padding-left: calc(14vw - 37.8px);
   padding-right: calc(14vw - 37.8px);
   padding-top: calc(4.13vw + 20.5px);
@@ -2295,7 +2352,7 @@ text-align: left;
 
 /* Последняя страница */
 .last_logo_5 {
-  margin-top: 50px;
+  padding-top: 50px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -2307,7 +2364,7 @@ text-align: left;
 .last_header {
   border-bottom:1px solid rgba(128, 128, 128, 0.299);
   border-top:1px solid rgba(128, 128, 128, 0.299);
-  margin-top: 40px;
+  padding-top: 40px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -2517,76 +2574,117 @@ color:#000000;
 .last_heading {
   display: flex;
   flex-direction: column;
-  border:1px solid #E8E8E8;
+  border: 1px solid #E8E8E8;
+  border-radius: 10px; /* Закругленные углы */
+  overflow: hidden; /* Обрезка содержимого для закругленных углов */
+  transition: box-shadow 0.3s; /* Плавный эффект тени */
 }
+
+.last_heading:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Тень при наведении */
+}
+
 .last_heading img {
   width: 100%;
 }
+
 .last_girl {
   padding: 48px;
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
+
 .last_girl img {
   width: 96px;
 }
+
 .last_girl h1 {
-font-family: 'Inter', sans-serif;
-font-size: 30px;
-font-weight: 600;
-line-height: 37px;
-text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 37px;
+  text-align: left;
+  transition: color 0.3s; /* Плавный переход цвета */
 }
+
+.last_girl h1:hover {
+  color: #3498db; /* Изменение цвета заголовка при наведении */
+}
+
 .last_girl p {
-font-family: 'Inter', sans-serif;
-font-size: 18px;
-line-height: 28px;
-letter-spacing: -0.20000000298023224px;
-text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.2px;
+  text-align: left;
 }
+
 .last_secondary {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 5px;
 }
+
 .first_block {
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
   gap: 5px;
 }
+
 .first_block img {
   width: 36px;
 }
+
 .first_block span {
-font-family: 'Inter', sans-serif;
-font-size: 12px;
-line-height: 15px;
-text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: left;
 }
-.second_block{
+
+.second_block {
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
   gap: 30px;
 }
+
 .second_block img {
   width: 16px;
 }
+
 .second_block span {
-font-family: 'Inter', sans-serif;
-font-size: 12px;
-line-height: 15px;
-text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: left;
 }
+
 .second_block div {
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
   gap: 5px;
 }
+
+/* Анимация для секции .last_girl */
+.last_girl {
+  opacity: 0; /* Начальная прозрачность */
+  transform: translateY(20px); /* Начальное положение */
+  animation: fadeInUp 0.5s forwards; /* Анимация появления */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная прозрачность */
+    transform: translateY(0); /* Конечное положение */
+  }
+}
+
 .food_cards {
   margin-top: calc(4.13vw + 20.5px);
   display: flex;
@@ -2684,10 +2782,18 @@ background-color:transparent;
   gap: 20px;
 }
 .last_grids div {
+  padding: 5px;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: #fff;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
 }
 .last_grids div img {
   width: 100%;
@@ -2768,8 +2874,252 @@ color:#7F7F7F;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  
 }
 .again_last_grids img {
   width: 100%;
+  background-color: #fff;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    padding: 10px;
+    transition: 1s;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная прозрачность */
+    transform: translateY(0); /* Конечное положение */
+  }
 }
 
+.menu_of_dishes {
+  margin-left: calc(14vw - 37.8px);
+  margin-right: calc(14vw - 37.8px);
+  margin-top: calc(4.13vw + 20.5px);
+}
+
+.menu_of_dishes_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+@media (max-width:700px) {
+  .menu_of_dishes_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.menu_of_dishes_grid h3 {
+font-family: 'Inter', sans-serif;
+font-size: calc(0.71vw + 9.71px);
+font-weight: 600;
+line-height: 140%;
+}
+.menu_of_dishes_grid img {
+  width: 100%;
+}
+.card_of_fifth {
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Начальная прозрачность */
+  transform: translateY(20px); /* Начальное положение */
+  animation: fadeInUp 1s forwards; /* Анимация появления */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Конечная прозрачность */
+    transform: translateY(0); /* Конечное положение */
+  }
+}
+
+.card_of_fifth img {
+  width: 100%; /* Адаптивная ширина для изображения */
+  border-radius: 10px; /* Закругление углов изображения */
+}
+
+
+
+
+@media (max-width:500px) {
+  .card_of_fifth:last-child{
+    display: none;
+  }
+}
+
+.menu_of_dishes h1 {
+  width: 100%;
+  font-family: "Playfair Display", sans-serif;
+  font-size: calc(1.12vw + 19.7px);
+  font-weight: 700;
+  line-height: 44px;
+  text-align: left;
+}
+
+.searcher {
+  padding-left: calc(14vw - 37.8px);
+  padding-right: calc(14vw - 37.8px);
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  background-color:white;
+  display: none;
+}
+.searching_side {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  align-items: center;
+  gap: 20px;
+  background-color: #f1f1f1; /* Светлый фон для поисковой строки */
+  padding: 10px;
+  border-radius: 8px; /* Округленные края */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для легкого эффекта */
+  transition: box-shadow 0.3s ease; /* Плавный эффект на изменение тени */
+}
+
+.searching_side:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Более сильная тень при наведении */
+}
+
+.searching_side input {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #000000;
+  padding: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 140%;
+  background-color: transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Плавный переход для рамки и тени */
+}
+
+.searching_side input:focus {
+  border-bottom: 1px solid #007BFF; /* Изменение цвета рамки при фокусе */
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3); /* Тень вокруг строки при фокусе */
+}
+
+.searching_side img {
+  width: 20px; /* Размер изображения */
+  height: 20px;
+  cursor: pointer; /* Указатель курсора при наведении на картинку */
+  opacity: 0.7; /* Прозрачность изображения */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Плавный эффект на изменение прозрачности и масштаба */
+}
+
+.searching_side img:hover {
+  opacity: 1; /* Полная непрозрачность при наведении */
+  transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Начальная позиция ниже */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Конечная позиция */
+  }
+}
+
+.search_cards {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+.search_card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgb(206, 206, 206);
+  border-bottom: 1px solid rgb(206, 206, 206);
+  padding: 10px 0;
+  background-color: #fff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  opacity: 0; /* Изначально скрыто */
+  animation: fadeInUp 0.6s ease forwards; /* Анимация появления */
+}
+
+.search_card:nth-child(1) {
+  animation-delay: 0.1s; /* Задержка для первой карточки */
+}
+.search_card:nth-child(2) {
+  animation-delay: 0.2s; /* Задержка для второй карточки */
+}
+.search_card:nth-child(3) {
+  animation-delay: 0.3s; /* Задержка для третьей карточки */
+}
+/* Добавь больше задержек для других карточек, если необходимо */
+
+.search_card:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.search_card img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.search_card img:hover {
+  transform: scale(1.1);
+}
+
+.search_card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.search_card:hover h3 {
+  color: #007BFF;
+}
+
+.search_card span {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  line-height: 16px;
+  color: #666;
+}
+
+.search_card:hover span {
+  color: #333;
+}
+
+
+.searcher button {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  width: 170px;
+  height:29px;
+  padding: 6px 24px 6px 24px;
+  border-radius: 2px;
+  border: 1px solid black;
+  background-color: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.94px;
+}
+#searcher_1 {
+  cursor:pointer;
+}
