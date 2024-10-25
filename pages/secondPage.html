@@ -54,19 +54,19 @@
         <button>See all 343 results</button>
       </div>
     <div class="popup">
-        <div class="exit">
-          <img src="./img/quit.png" alt="exit" class="close" onclick="closePopup()">
-        </div>
-        <div class="menu">
-          <a href="./index.html">Homepage</a>
-          <a href="./pages/secondPage.html">SecondPage</a>
-          <a href="./thirdPage.html">ThirdPage</a>
-          <a href="./fourthPage.html">FourthPage</a>
-          <a href="./pages/fifthPage.html">LastPage</a>
+      <div class="exit">
+        <img src="./img/quit.png" alt="exit" class="close" onclick="closePopup()">
       </div>
-      </div>
+      <div class="menu">
+        <a href="./index.html">Homepage</a>
+        <a href="./pages/secondPage.html">SecondPage</a>
+        <a href="./pages/thirdPage.html">ThirdPage</a>
+        <a href="./pages/fourthPage.html">FourthPage</a>
+        <a href="./pages/fifthPage.html">LastPage</a>
+    </div>
+    </div>
       <header class="last_header">
-        <img src="../img/search.jpg" alt="search" />
+        <img src="../img/search.jpg" alt="search" id="searcher_1"/>
         <img src="../img/logo.png" alt="last_logo" class="last_photo" />
           <nav>
               <div class="dropdown">
@@ -96,7 +96,8 @@
               <a href="">Elements</a>
               <a href="">Buy</a>
             </nav>
-        <img src="../img/menu.png" alt="menu" class="list" onclick="popup()" />
+          <input type="checkbox" id="burger-checkbox" class="burger-checkbox" onclick="popup()">
+          <label class="burger" for="burger-checkbox"></label>
       </header>
     <section class="full_guide">
         <h1>A full guide for a better and smarter cooking</h1>
