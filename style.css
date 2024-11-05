@@ -692,33 +692,78 @@ color:#000000;
   display: none;
 }
 .exit img {
-  width: 15px;
-  height: 15px;
+  width: 25px;
+  height: 25px;
+  transition: all 0.3s ease; /* Плавная анимация для всех свойств */
 }
+
+/* Анимация при наведении (hover) */
+.exit img:hover {
+  transform: rotate(180deg) scale(1.2); /* Поворот и увеличение размера */
+  cursor: pointer; /* Курсор меняется на указатель */
+}
+
+/* Анимация для меню */
 .menu {
   margin-top: 10px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:flex-start;
+  align-items: flex-start;
   gap: 20px;
-  background-color: rgba(255, 255, 255, 0.9); /* здесь задаем прозрачность и цвет самого окна */
-  border-radius:10px;
+  background-color: rgba(255, 255, 255, 0.9); /* Прозрачность и цвет окна */
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(-20px); /* Начальное состояние: меню скрыто сдвинуто вверх */
+  animation: slideIn 0.5s forwards ease-in-out; /* Анимация появления меню */
 }
+
+/* Появление меню с анимацией */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); /* Начальное положение вне экрана */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Конечное положение — нормальная позиция */
+  }
+}
+
+/* Стили для ссылок в меню */
 .menu a {
-font-family: 'Inter';
-font-size: 16px;
-font-weight: 500;
-line-height: 15px;
-text-align: left;
-text-decoration: none;
-color:#000000;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: left;
+  text-decoration: none;
+  color: #000000;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards ease-out; /* Анимация появления ссылок */
+  animation-delay: 0.2s; /* Задержка для каждого элемента */
 }
+
 .menu a:hover {
-  color:#FF642F
+  color: #FF642F; /* Цвет при наведении */
 }
-.latest_recipes{
+
+/* Появление ссылок с анимацией */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px); /* Начальная позиция — сдвинуто влево */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Конечная позиция — нормальное расположение */
+  }
+}
+
+/* Анимация для блока latest_recipes */
+.latest_recipes {
   margin-left: calc(14vw - 37.8px);
   margin-right: calc(14vw - 37.8px);
   margin-top: calc(4.13vw + 20.5px);
@@ -728,7 +773,23 @@ color:#000000;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transform: translateY(50px); /* Начальная позиция блока — скрыт и сдвинут вниз */
+  animation: fadeInUp 0.7s forwards ease-out; /* Анимация появления с подъёмом */
 }
+
+/* Появление блока latest_recipes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px); /* Начальная позиция — сдвинут вниз */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Конечная позиция — нормальное расположение */
+  }
+}
+
 .latest_recipes h1 {
 font-family: 'Playfair Display', sans-serif;
 font-size: calc(1.12vw + 19.7px);
@@ -1508,6 +1569,7 @@ footer {
 }
 
 .load_1 {
+  cursor: pointer;
   margin-left: calc(31.3vw - 49.6px);
   margin-top: 43px;
   margin-bottom: 80px;
@@ -1931,21 +1993,22 @@ outline: none;
 content: url(./img/twitter.png);
 }
 .contacts_with button {
+  cursor: pointer;
   background-color: #FF642F;
   color: white;
-width:292px;
-height: 48px;
-padding: 13px 125px 13px 125px;
-gap: 10px;
-border-radius: 4px;
-border: none;
+  width:292px;
+  height: 48px;
+  padding: 13px 125px 13px 125px;
+  gap: 10px;
+  border-radius: 4px;
+  border: none;
 }
 .contacts_with span {
-font-family: 'Inter', sans-serif;
-font-size: 10px;
-line-height: 16px;
-text-align: center;
-border-bottom: 1px solid red;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  border-bottom: 1px solid red;
 } 
 .made_this {
     margin-top: 40px;
@@ -1962,12 +2025,13 @@ border-bottom: 1px solid red;
   line-height: 72px;
 }
 .made_this button {
-background-color: white;
-width: 271px;
-height: 48px;
-padding: 13px 48px 13px 48px;
-border-radius: 4px;
-border: 1px solid black;
+  cursor: pointer;
+  background-color: white;
+  width: 271px;
+  height: 48px;
+  padding: 13px 48px 13px 48px;
+  border-radius: 4px;
+  border: 1px solid black;
 }
 
 
@@ -2220,6 +2284,7 @@ text-align: left;
 
 /* Карточка */
 .faces {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2360,6 +2425,7 @@ text-align: left;
 }
 .last_logo_5 img{
   width: 255px;
+  margin-bottom: 10px;
 }
 .last_header {
   border-bottom:1px solid rgba(128, 128, 128, 0.299);
@@ -2782,6 +2848,7 @@ background-color:transparent;
   gap: 20px;
 }
 .last_grids div {
+  cursor: pointer;
   padding: 5px;
   margin-top: 10px;
   display: flex;
@@ -2921,6 +2988,7 @@ line-height: 140%;
   width: 100%;
 }
 .card_of_fifth {
+  cursor: pointer;
   width: 100%;
   padding: 20px;
   background-color: #fff;
@@ -2963,8 +3031,8 @@ line-height: 140%;
 }
 
 .searcher {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   padding-left: calc(14vw - 37.8px);
   padding-right: calc(14vw - 37.8px);
   position: fixed;
@@ -3052,7 +3120,7 @@ line-height: 140%;
 }
 
 .search_cards {
-  margin-top: 10px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   gap:10px;
@@ -3126,6 +3194,7 @@ line-height: 140%;
 
 
 .searcher button {
+  cursor: pointer;
   display: block;
   margin: auto;
   margin-top: 30px;
